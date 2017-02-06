@@ -17,11 +17,11 @@ func New(out string) *NCmd {
 }
 
 //run ssh command
-func (u *NCmd) Execute(cmd string, args ...string) error {
+func Execute(cmd string, args ...string) error {
 
 	log.Println("log:", cmd, args)
 
-	u.Out = ""
+	std.Out = ""
 
 	out, err := exec.Command(cmd, args...).Output()
 
@@ -30,7 +30,7 @@ func (u *NCmd) Execute(cmd string, args ...string) error {
 		return err
 	}
 
-	u.Out = fmt.Sprintf("%s", out)
+	std.Out = fmt.Sprintf("%s", out)
 
 	return nil
 }
