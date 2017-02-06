@@ -10,10 +10,18 @@ type NCmd struct {
 	Out string
 }
 
+var std = New("")
+
+func New(out string) *NCmd {
+	return &NCmd{Out: out}
+}
+
 //run ssh command
 func (u *NCmd) Execute(cmd string, args ...string) error {
 
 	log.Println("log:", cmd, args)
+
+	u.Out = ""
 
 	out, err := exec.Command(cmd, args...).Output()
 
