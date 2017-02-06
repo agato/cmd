@@ -34,3 +34,7 @@ func Execute(cmd string, args ...string) error {
 
 	return nil
 }
+
+func Out() string {
+	return std.Out
+}
